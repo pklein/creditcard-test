@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "credit_card"
+
+puts CreditCard::Application.generate_card_summary(STDIN.read)
+
