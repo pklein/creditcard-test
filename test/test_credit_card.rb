@@ -13,7 +13,7 @@ class CreditCardTest < Minitest::Test
       '5105105105105100',
       '5105 1051 0510 5106',
       '9111111111111111'
-    ].join('\n')
+    ].join("\n")
 
     expected_output = [
       'VISA: 4111111111111111       (valid)',
@@ -24,7 +24,7 @@ class CreditCardTest < Minitest::Test
       'MasterCard: 5105105105105100 (valid)',
       'MasterCard: 5105105105105106 (invalid)',
       'Unknown: 9111111111111111    (invalid)'
-    ].join('\n')
+    ].join("\n")
 
     assert_equal expected_output, CreditCard::Application.generate_card_summary(full_input)
   end

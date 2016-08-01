@@ -2,10 +2,10 @@ module CreditCard
 
   class Application
     def self.generate_card_summary(input)
-      cards = input.split('\n').map do |line|
+      cards = input.split("\n").map do |line|
         Card.new(line)
       end
-      # cards.map(&:to_s).join('\n')
+      # cards.map(&:to_s).join("\n")
       # The above line was used initially, but to get the output alighnment, the following crazy method
       # was created.
       # Find the maximum length of a card string that excludes the validity message, and enforce that
@@ -13,7 +13,7 @@ module CreditCard
       max_output_length = cards.map {|card| card.str_without_validity.length}.max
       cards.map {|card|
         card.to_s max_output_length
-      }.join('\n')
+      }.join("\n")
     end
   end
 
