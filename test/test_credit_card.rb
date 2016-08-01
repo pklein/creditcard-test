@@ -28,4 +28,8 @@ class CreditCardTest < Minitest::Test
 
     assert_equal expected_output, CreditCard::Application.generate_card_summary(full_input)
   end
+
+  def test_whitespace_is_stripped
+    assert_equal '4111111111111111', CreditCard::Card.new("4111 1111  1111  \t  1111").to_s
+  end
 end
