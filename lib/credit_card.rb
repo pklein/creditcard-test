@@ -51,7 +51,8 @@ module CreditCard
     end
 
     def to_s
-      @card_number
+      type = @type ? @type.to_s : 'Unknown'
+      "#{type}: #{@card_number}"
     end
   end
 
