@@ -14,7 +14,7 @@ results = STDIN.read.split("\n").map {|line|
     card = {:type => 'Discover', :card_num => card_num, :valid => luhn_check(card_num) }
   elsif card_num =~ /^5[1-5]\d{14}$/
     card = {:type => 'MasterCard', :card_num => card_num, :valid => luhn_check(card_num) }
-  elsif card_num =~ /^4\d{12,15}$/
+  elsif card_num =~ /^4(?:\d{12}|\d{15})$/
     card = {:type => 'VISA', :card_num => card_num, :valid => luhn_check(card_num) }
   end
   card
