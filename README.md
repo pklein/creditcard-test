@@ -2,12 +2,11 @@
 
 ## Introduction
 
-Develop an application using Ruby that solves the problem described below. The aim of the problem is to allow the candidate to *demonstrate their skill and experience* in aspects of the development process including domain modelling, object orientated design, use of language constructs and idioms and testing (unit or otherwise).
+In the language requested, develop an application that solves the problem described below. The aim of the problem is to allow the candidate to *demonstrate their skill and experience* in aspects of the development process including domain modelling, object orientated design (or a functional approach, depending on the language), use of language constructs, community idioms and your approach to testing.
 
 There is provided sample data to be used for testing and the candidate should be able to demonstrate their solution using the supplied data in the form of a command line interface and or unit test.
 
-The resulting solution should be returned by email 2 days before your interview. You will be required to talk through your solution at the interview.
-
+Please work through the exercise at your own pace, and send us (edh-dev@everydayhero.com.au) a link to your code. Typically, people will create a public github repo for this, but if you'd prefer a private repo, please give admin rights to @dansowter, and he'll invite other collaborators as necessary.
 
 ## Problem
 
@@ -39,7 +38,7 @@ For example, given the card number <code>4408 0412 3456 7893</code>:
     2 8+4+0+8+0+4+2+2+6+4+1+0+6+1+4+8+1+8+3 = 70
     3 70 % 10 == 0
 
-Thus that card is valid.
+Thus that card is luhn-valid.
 
 Let's try one more, <code>4417 1234 5678 9112</code>:
 
@@ -52,7 +51,7 @@ This card is not valid.
 
 ## Task
 
-Your task is to write a ruby program that accepts credit card numbers. Card numbers must be passed in line by line (one set of numbers per line). The program should print the card in the following format <code>"TYPE: NUMBERS (VALIDITY)"</code>.
+Your task is to write a program that accepts credit card numbers. Card numbers must be passed in line by line (one set of numbers per line). The program should print the card in the following format <code>"TYPE: NUMBERS (VALIDITY)"</code>.
 
 
 ## Input and Output
@@ -68,7 +67,7 @@ Given the following credit cards:
     5105 1051 0510 5106
     9111111111111111
 
-I would expect the following output:
+We would expect the following output:
 
     VISA: 4111111111111111       (valid)
     VISA: 4111111111111          (invalid)
@@ -78,3 +77,5 @@ I would expect the following output:
     MasterCard: 5105105105105100 (valid)
     MasterCard: 5105105105105106 (invalid)
     Unknown: 9111111111111111    (invalid)
+
+Good luck, and feel free to send us any questions you might have.
