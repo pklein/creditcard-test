@@ -30,6 +30,26 @@ class CreditCardTest < Minitest::Test
   end
 
   def test_whitespace_is_stripped
-    assert_equal '4111111111111111', CreditCard::Card.new("4111 1111  1111  \t  1111").to_s
+    assert_equal '4111111111111111', CreditCard::Card.new("4111 1111  1111  \t  1111").instance_variable_get(:@card_number)
+  end
+
+  def test_match_visa
+    assert_equal 'VISA', CreditCard::Card.new("4111111111111111").instance_variable_get(:@type).to_s
+  end
+
+  def test_match_amex
+    assert_equal 'AMEX', CreditCard::Card.new("378282246310005").instance_variable_get(:@type).to_s
+  end
+
+  def test_match_discover
+    assert_equal 'Discover', CreditCard::Card.new("6011111111111117").instance_variable_get(:@type).to_s
+  end
+
+  def test_match_mastercard
+    assert_equal 'MasterCard', CreditCard::Card.new("5105105105105100").instance_variable_get(:@type).to_s
+  end
+
+  def test_unknown_card_type
+    assert_nil CreditCard::Card.new("9111111111111111").instance_variable_get(:@type)
   end
 end
