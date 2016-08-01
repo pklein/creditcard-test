@@ -5,7 +5,15 @@ module CreditCard
       cards = input.split('\n').map do |line|
         Card.new(line)
       end
-      cards.map(&:to_s).join('\n')
+      # cards.map(&:to_s).join('\n')
+      # The above line was used initially, but to get the output alighnment, the following crazy method
+      # was created.
+      # Find the maximum length of a card string that excludes the validity message, and enforce that
+      # length across the rest.
+      max_output_length = cards.map {|card| card.str_without_validity.length}.max
+      cards.map {|card|
+        card.to_s max_output_length
+      }.join('\n')
     end
   end
 
@@ -51,9 +59,13 @@ module CreditCard
       end
     end
 
-    def to_s
+    def str_without_validity
       type = @type ? @type.to_s : 'Unknown'
-      "#{type}: #{@card_number} #{@valid ? '(valid)' : '(invalid)'}"
+      "#{type}: #{@card_number}"
+    end
+
+    def to_s padding=0
+      str_without_validity().ljust(padding) + " #{@valid ? '(valid)' : '(invalid)'}"
     end
 
     private
