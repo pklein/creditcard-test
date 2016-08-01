@@ -52,4 +52,12 @@ class CreditCardTest < Minitest::Test
   def test_unknown_card_type
     assert_nil CreditCard::Card.new("9111111111111111").instance_variable_get(:@type)
   end
+
+  def test_luhn_check_success
+    assert CreditCard::Card.new("4111111111111111").instance_variable_get(:@valid)
+  end
+
+  def test_luhn_check_failure
+    assert (not CreditCard::Card.new("4111111111111").instance_variable_get(:@valid))
+  end
 end
